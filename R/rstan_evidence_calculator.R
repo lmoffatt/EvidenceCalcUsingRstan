@@ -251,6 +251,13 @@ integrate_beta_with_derivative_mean_se<-function(beta,logL,se_logL,logL_var,se_l
   );
   res
 }
+
+
+#'calculates the Evidence from samplings at different beta values
+#'
+#'@param rstanrunvector a vector of rstan samplings obtained from runSampling
+#'@param betavector the vector of beta values corresponding to rstanrunvector
+#'@param logLiklabel the label in the model that is used for loglikelihood values
 Evidencerun<-function(rstanrunvector,betavector,logLiklabel="loglikelihood")
 {
   logL<-lapply(rstanrunvector,parameter_summary,parameter=logLiklabel);
