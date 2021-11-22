@@ -18,7 +18,7 @@ runSampling<-function(model,mydata,betavector,betalabel="beta",...)
 
 parameter_summary<-function(rstanrun, parameter)
 {
-  s=summary(rstanrun,parameter);
+  s=summary(rstanrun,"loglikelihood");
   mean=mean(s$c_summary[,"mean",]);
   sd_mean=sd(s$c_summary[,"mean",]);
   se_mean=sd_mean/(dim(s$c_summary)[3]-1)^0.5;
